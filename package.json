@@ -1,7 +1,7 @@
 {
-  "name": "",
+  "name": "ocean-jornada-backend-julho-2024",
   "version": "1.0.0",
-  "description": "trilha-back-end",
+  "description": "Projeto da Jornada Backend Julho/2024 com NodeJS e Express, no curso do Samsung Ocean.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
