@@ -8,12 +8,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-<<<<<<< HEAD
-  "description": ""
-=======
   "description": "",
   "dependencies": {
     "express": "^4.19.2"
   }
->>>>>>> 06aef3a (Criação do Projeto NodeJS)
 }
