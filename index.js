@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const express = require('express')
 const app = express()
 
@@ -28,3 +29,6 @@ app.post('/item', function (req, res) {
 })
 
 app.listen(3000)
+=======
+console.log("Hello, World")
+>>>>>>> bc62bc966f76a3dd6254396b0dfb8f3255d51f59
