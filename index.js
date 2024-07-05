@@ -27,29 +27,38 @@ async function main() {
   // Lista de Personagens
   const lista = ['Rick Sanchez', 'Morty Smith', 'Summer Smith']
 
+  const db = client.db(dbName)
+  const collection = db.collection('item')
+
   // Read All - [GET] /item
-  app.get('/item', function (req, res) {
+  app.get('/item', async function (req, res) {
+
+    //Obter todos os documentos da collection
+    const documentos = await collection.find().toArray()
+
     // Pegamos a lista e enviamos como resposta HTTP
-    res.send(lista)
+    res.send(documentos)
   })
 
   // Sinalizamos para o Express que vamos usar JSON no Body
   app.use(express.json())
 
   // Create - [POST] /item
-  app.post('/item', function (req, res) {
+  app.post('/item', async function (req, res) {
+    
     // Obtemos o nome enviado no Request Body
-    const item = req.body.nome
+    const item = req.body
 
-    // Inserimos o item no final da lista
-    lista.push(item)
-
+    //Inserimos o Item na Collection
+    await collection.insertOne(item)
+    
     // Enviamos uma mensagem de sucesso!
-    res.send('Item criado com sucesso!')
+    res.send(item)
   })
 
   // Ready by ID - [GET] /item/:id
   app.get('/item/:id', function (req, res) {
+    
     //Acessamos o parâmetro de rota ID
     const id = req.params.id
 
@@ -62,6 +71,7 @@ async function main() {
 
   // Update - [PUT] /item/:id
   app.put('/item/:id', function (req, res) {
+    
     // Acessamos o ID do parâmetro de rota
     const id = req.params.id
 
